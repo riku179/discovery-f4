@@ -34,7 +34,7 @@ fn main() -> ! {
 
     let mut delay = Delay::new(cp.SYST, clocks);
 
-    let delay_ms= 500_u32;
+    let delay_ms= 100_u32;
 
     loop {
         blink_led(&mut green, &mut delay, delay_ms);
@@ -44,6 +44,7 @@ fn main() -> ! {
     }
 }
 
+#[allow(unused_must_use)]
 fn blink_led<T: OutputPin>(led: &mut T, delay: &mut Delay, delay_ms: u32) -> () {
     led.set_high();
     delay.delay_ms(delay_ms);
